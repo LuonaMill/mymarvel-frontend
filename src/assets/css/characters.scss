@@ -1,0 +1,49 @@
+.container {
+  background-color: black;
+  color: white;
+  font-family: "Kanit", sans-serif;
+  text-align: center;
+  border: 2px solid black;
+  min-height: 90vh;
+  padding-top: 20px;
+  .all-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    gap: 10px;
+    margin-top: 40px;
+    padding: 0 50px;
+  }
+}
+
+p.infos-pages {
+  color: red;
+}
+
+.pagination {
+  margin: 50px auto 0px auto;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  .page {
+    height: 20px;
+    width: 20px;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  input {
+    height: 35px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+.page:hover {
+  cursor: pointer;
+}

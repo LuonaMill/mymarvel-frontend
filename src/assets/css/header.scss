@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;700&family=Pacifico&family=Roboto:wght@400;700&display=swap");
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Kanit", sans-serif;
+  background-color: black;
+  color: white;
+  height: 450px;
+  letter-spacing: 1.5px;
+  gap: 20px;
+
+  .search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      margin-top: 40px;
+      width: 350px;
+      object-fit: contain;
+      box-shadow: -10px 5px 5px #750000;
+    }
+    .filters {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin-right: 30px;
+      gap: 10px;
+      .searchbar {
+        input {
+          height: 40px;
+          width: 300px;
+          border-radius: 5px;
+          background-color: white;
+        }
+        input::placeholder {
+          font-size: 16px;
+          padding-left: 15px;
+          color: rgba(117, 0, 0, 0.5);
+        }
+      }
+      .limit-selection {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        select {
+          width: 50px;
+          height: 30px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+.navmenu {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  div {
+    width: 30%;
+    height: 150px;
+    border: 10px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #750000;
+
+    opacity: 0.5;
+    border-radius: 5px;
+    font-size: 40px;
+  }
+}
+
+div.here {
+  background-image: url("https://m.media-amazon.com/images/I/91ejhAAeUmL._AC_SX679_.jpg");
+  color: #fff;
+  font-weight: 600;
+  opacity: 1;
+  h2 {
+    background-color: rgb(237, 24, 30);
+    border-radius: 5px;
+    padding: 0 8px 0 8px;
+  }
+}
+
+.navmenu div:hover {
+  cursor: pointer;
+  width: 33%;
+  height: 180px;
+  opacity: 1;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  height: 40px;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #750000;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: red;
+}
