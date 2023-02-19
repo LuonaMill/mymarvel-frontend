@@ -5,15 +5,7 @@ import ComicCard from "../components/ComicCard";
 import comicPicture from "../assets/images/not-found-comics.jpg";
 import Pagination from "../components/Pagination";
 
-const Comics = ({
-  search,
-  limit,
-  setSkip,
-  skip,
-  setFavorites,
-  favorites,
-  token,
-}) => {
+const Comics = ({ search, limit, setSkip, skip }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +13,7 @@ const Comics = ({
     const fetchComics = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4004/comics?title=${search}&limit=${limit}&skip=${skip}`
+          `https://site--marvel-backend--wbbmf4gr4bwy.code.run/comics?title=${search}&limit=${limit}&skip=${skip}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -35,7 +27,7 @@ const Comics = ({
   return (
     <div className="container">
       {isLoading === true ? (
-        <p>En cours de chargement</p>
+        <p>L/oading...</p>
       ) : (
         <div>
           <Pagination
@@ -49,7 +41,7 @@ const Comics = ({
           <div className="all-images">
             {data.count === 0 ? (
               <h2 style={{ color: "white" }}>
-                Nous sommes désolés ! Il n'y a aucune BD Marvel portant ce titre
+                Sorry ! No Marvel comic exists with this title
               </h2>
             ) : (
               data.results.map((comic, index) => {

@@ -14,30 +14,31 @@ const Signup = ({ setUser }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:4004/user/signup", {
-        email: email,
-        password: password,
-        username: username,
-      });
+      const response = await axios.post(
+        `https://site--marvel-backend--wbbmf4gr4bwy.code.run/user/signup`,
+        {
+          email: email,
+          password: password,
+          username: username,
+        }
+      );
       if (response.data.token) {
         setUser(response.data.token);
         setUsername("");
         setEmail("");
         setPassword("");
         setErrorMessage("");
-        alert("Merci pour votre inscription");
+        alert("Thanks for signing up! You can now add favorites characters");
         navigate("/");
       } else {
-        alert("Une erreur est survenue, veuillez réessayer");
+        alert("An error occurred, please try again");
       }
     } catch (error) {
       if (error.response.status === 409) {
-        setErrorMessage("Cet email a déjà un compte chez nous !");
+        setErrorMessage("This email is already linked to an account");
       }
       if (error.response.status === 400) {
-        setErrorMessage(
-          "Merci de renseigner tous les champs afin de valider votre inscription"
-        );
+        setErrorMessage("Thanks for filling in each field before signing up");
       }
       console.log(error.message);
     }

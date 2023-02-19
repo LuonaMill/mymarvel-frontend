@@ -12,8 +12,6 @@ const CharacterCard = ({
   token,
 }) => {
   const navigate = useNavigate();
-  // JE tente de créer un state favoris au format tableau pour y stocker plusieurs Cookies
-  // const [favorites, setFavorites] = useState([]);
 
   const [favorite, setFavorite] = useState(false);
 
@@ -22,7 +20,7 @@ const CharacterCard = ({
       try {
         event.preventDefault();
         const response = await axios.post(
-          `http://localhost:4004/favorites/${token}`,
+          `https://site--marvel-backend--wbbmf4gr4bwy.code.run/favorites/${token}`,
           {
             token: token,
             name: character.name,
@@ -33,13 +31,13 @@ const CharacterCard = ({
         );
         if (response.data._id) {
           setFavorite(true);
-          alert(`Vous avez ajouté ${character.name} dans vos favoris`);
+          alert(`Congrats ! You added ${character.name} in your favs`);
         }
       } catch (error) {
         console.log(error.message);
       }
     } else {
-      alert("Ce personnage est déjà dans vos favoris");
+      alert("You already have this guy in your favs");
     }
   };
 

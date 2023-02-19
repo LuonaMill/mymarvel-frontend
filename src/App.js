@@ -18,11 +18,10 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(100);
   const [skip, setSkip] = useState(0);
-  const [favorites, setFavorites] = useState([]); //?
 
   const [token, setToken] = useState(Cookies.get("token") || null);
 
-  //Je crée une fonction pour créer et stocker un token
+  //Je crée une fonction pour créer et stocker un token afin d'identifier mon user
   const setUser = (token) => {
     if (token) {
       setToken(token);
@@ -52,11 +51,9 @@ const App = () => {
               search={search}
               limit={limit}
               skip={skip}
-              favorites={favorites}
               setSearch={setSearch}
               setLimit={setLimit}
               setSkip={setSkip}
-              setFavorites={setFavorites}
               token={token}
             />
           }
@@ -68,28 +65,16 @@ const App = () => {
               search={search}
               limit={limit}
               skip={skip}
-              favorites={favorites}
               setSearch={setSearch}
               setLimit={setLimit}
               setSkip={setSkip}
-              setFavorites={setFavorites}
               token={token}
             />
           }
         />
 
         <Route path="/character/:id" element={<EachCharacter />} />
-        {/* Dans mon chemin Favorites, je mettrai une props {favorites} pour récupérer mon tableau de favoris */}
-        <Route
-          path="/favorites"
-          element={
-            <Favorites
-              favorites={favorites}
-              setFavorites={setFavorites}
-              token={token}
-            />
-          }
-        />
+        <Route path="/favorites" element={<Favorites token={token} />} />
       </Routes>
       <Footer />
     </Router>

@@ -15,18 +15,21 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:4004/user/login", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        `https://site--marvel-backend--wbbmf4gr4bwy.code.run/user/login`,
+        {
+          email: email,
+          password: password,
+        }
+      );
       if (response.data.token) {
         setUser(response.data.token);
-        alert("Nous sommes heureux de vous revoir parmi nous");
+        alert("Welcome again!");
         navigate(fromFavorites ? "/favorites" : "/");
       }
     } catch (error) {
       if (error.response.status === 401) {
-        setErrorMessage("Votre email ou votre mot de passe sont incorrects");
+        setErrorMessage("Your email or password are invalid");
       }
     }
   };
@@ -59,8 +62,8 @@ const Login = ({ setUser }) => {
         </div>
 
         <button type="submit">Login</button>
+        {errorMessage && <p>{errorMessage}</p>}
       </form>
-      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };

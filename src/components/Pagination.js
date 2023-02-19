@@ -44,12 +44,10 @@ const Pagination = ({ limit, setSkip, count, skip, position }) => {
         <p>🔥🔥🔥</p>
       ) : count !== 0 ? (
         <p className="infos-pages">
-          Vous êtes actuellement sur la page n° {page} sur {pagesCounter}
+          You currently are on page {page} out of {pagesCounter}
         </p>
       ) : (
-        <p className="infos-pages">
-          Voici tous les résultars correspondant à votre recherche
-        </p>
+        <p className="infos-pages">Please find all results in this page</p>
       )}
     </section>
   );

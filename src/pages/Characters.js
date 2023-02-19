@@ -21,28 +21,12 @@ const Characters = ({
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  //   const handleFavorites = () => {
-  //     Cookies.set("favorite-id");
-  //     const newTab = [...cookies];
-  //     newTab.push;
-  //   };
-
-  //   const handleFavorite = (favorite) => {
-  //     if (favorite) {
-  //       setFavorites(favorite);
-  //       Cookies.set("favorite", favorite, { expires: 7 });
-  //     } else {
-  //       setToken(null);
-  //       Cookies.remove("token");
-  //     }
-  //   };
-
   //* Je récupère les données issues
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4004/characters?name=${search}&limit=${limit}&skip=${skip}`
+          `https://site--marvel-backend--wbbmf4gr4bwy.code.run/characters?name=${search}&limit=${limit}&skip=${skip}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -56,7 +40,7 @@ const Characters = ({
   return (
     <div className="container">
       {isLoading === true ? (
-        <p>En cours de chargement</p>
+        <p>Loading...</p>
       ) : (
         <div>
           <Pagination
@@ -70,7 +54,7 @@ const Characters = ({
           <div className="all-images">
             {data.count === 0 ? (
               <h2 style={{ color: "white" }}>
-                Nous sommes désolés ! Aucun personnage Marvel ne porte ce nom.
+                Sorry ! No Marvel character wears this name
               </h2>
             ) : (
               data.results.map((character) => {

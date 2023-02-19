@@ -2,13 +2,10 @@ import { useLocation } from "react-router-dom";
 
 const Searchbar = ({ setSearch, setLimit }) => {
   const location = useLocation();
-  console.log(location.pathname);
 
-  //Créer une condition sur la search bar qui s'affiche selon la page où on est
   return (
     <div className="filters">
       <div className="searchbar">
-        {/* <p>Search bar</p> */}
         {location.pathname === "/" ? (
           <div>
             <input
@@ -39,7 +36,7 @@ const Searchbar = ({ setSearch, setLimit }) => {
             <option value="25">25</option>
             <option value="10">10</option>
           </select>
-          <label htmlFor="limit-select">Résultats par page</label>
+          <label htmlFor="limit-select">Results per page</label>
         </div>
       )}
     </div>

@@ -14,7 +14,7 @@ const EachCharacter = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4004/comics/${character._id}`
+          `https://site--marvel-backend--wbbmf4gr4bwy.code.run/comics/${character._id}`
         );
         // console.log(character.comics);
         setData(response.data);
@@ -27,7 +27,7 @@ const EachCharacter = () => {
   }, [character._id]);
 
   return isLoading ? (
-    <h2>En cours de chargement</h2>
+    <h2>Loading...</h2>
   ) : (
     <div className="container">
       <div className="character-infos">

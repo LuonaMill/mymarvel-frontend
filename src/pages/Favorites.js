@@ -10,7 +10,7 @@ const Favorites = ({ token }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4004/favorites/${token}`
+          `https://site--marvel-backend--wbbmf4gr4bwy.code.run/favorites/${token}`
         );
         setData(response.data);
         console.log(response.data);
@@ -25,9 +25,9 @@ const Favorites = ({ token }) => {
   return (
     <div className="container">
       {!token ? (
-        <h2>Pour accéder à vos favoris, merci de vous connecter! </h2>
+        <h2>To reach your heroes, please login 😉</h2>
       ) : isLoading ? (
-        <p>Favoris en cours de chargement</p>
+        <p>Loading...</p>
       ) : (
         <div className="favorite-card">
           {data.map((character) => {

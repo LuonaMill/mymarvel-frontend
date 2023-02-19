@@ -63,7 +63,7 @@ const Header = ({ setSearch, setLimit, token, setToken }) => {
             }
           }}
         >
-          <h2>PERSOS</h2>
+          <h2>CHARS</h2>
         </div>
         <div
           className={location.pathname === "/comics" ? "here" : "categorie"}
@@ -83,7 +83,7 @@ const Header = ({ setSearch, setLimit, token, setToken }) => {
             }
           }}
         >
-          <h2>FAVORIS</h2>
+          <h2>FAVS 🤍</h2>
         </div>
       </section>
     </div>
